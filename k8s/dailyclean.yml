@@ -62,6 +62,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: dailyclean
+  namespace: chanezamk-dev
 rules:
   - verbs:
       - get
@@ -102,14 +103,16 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: dailyclean
----
+  namespace: chanezamk-dev
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: dailyclean
+  namespace: chanezamk-dev
 subjects:
   - kind: ServiceAccount
     name: dailyclean
+    namespace: chanezamk-dev
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
